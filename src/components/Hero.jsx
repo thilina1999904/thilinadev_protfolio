@@ -10,49 +10,47 @@ import { DownloadIcon, MessageCircle } from 'lucide-react'
 import hero from '../assets/hero.png'
 
 const Hero = ({ darkMode }) => {
-    // 1. Array එකට අදාළ ලින්ක්ස් (href) එකතු කරන්න
     const socialIcons = [
-  {
-    icon: <FaLinkedin />,
-    href: "https://www.linkedin.com/in/thilina-nirmal-aa488322a/",
-    color: "hover:text-blue-600"
-  },
-  {
-    icon: <FaGithub />,
-    href: "https://github.com/thilina1999904",
-    color: "hover:text-gray-800"
-  },
-  {
-    icon: <FaInstagram />,
-    href: "https://www.instagram.com/nirmal_thilina/",
-    color: "hover:text-pink-500"
-  },
-  {
-    icon: <FaFacebook />,
-    href: "https://web.facebook.com/thilina.malshan.568/",
-    color: "hover:text-blue-500"
-  },
-  {
-    icon: <FaWhatsapp />,
-    href: "https://wa.me/94713595423",
-    color: "hover:text-green-500"
-  }
-];
-    const darkTheme = {
+        {
+            icon: <FaLinkedin />,
+            href: "https://www.linkedin.com/in/thilina-nirmal-aa488322a/",
+            color: "hover:text-blue-600"
+        },
+        {
+            icon: <FaGithub />,
+            href: "https://github.com/thilina1999904",
+            color: "hover:text-gray-800"
+        },
+        {
+            icon: <FaInstagram />,
+            href: "https://www.instagram.com/nirmal_thilina/",
+            color: "hover:text-pink-500"
+        },
+        {
+            icon: <FaFacebook />,
+            href: "https://web.facebook.com/thilina.malshan.568/",
+            color: "hover:text-blue-500"
+        },
+        {
+            icon: <FaWhatsapp />,
+            href: "https://wa.me/94713595423",
+            color: "hover:text-green-500"
+        }
+    ];
+
+    const theme = darkMode ? {
         textPrimary: 'text-white',
         textSecondary: 'text-gray-300',
         buttonSecondary: `text-white border-2 border-orange-500 hover:bg-orange-500/20`,
-        decorativeCircle: 'bg-orange-500 opacity-10'
-    };
-
-    const lightTheme = {
+        decorativeCircle: 'bg-orange-500 opacity-10',
+        iconBase: 'text-white'
+    } : {
         textPrimary: 'text-gray-900',
         textSecondary: 'text-gray-700',
         buttonSecondary: `text-gray-800 border-2 border-orange-500 hover:bg-orange-500 hover:text-white`,
-        decorativeCircle: 'bg-orange-400 opacity-20'
+        decorativeCircle: 'bg-orange-400 opacity-20',
+        iconBase: 'text-gray-600'
     };
-
-    const theme = darkMode ? darkTheme : lightTheme;
 
     return (
         <div className='relative overflow-hidden min-h-screen flex flex-col'>
@@ -66,18 +64,17 @@ const Hero = ({ darkMode }) => {
 
                     <div className='lg:w-1/2 w-full flex flex-col items-center lg:items-start text-center lg:text-left mt-20 mb-12 lg:mb-0'>
 
+                        {/* Social Icons Section */}
                         <div className='flex justify-center lg:justify-start gap-4 sm:gap-6 mb-6 sm:mb-7 w-full'>
                             {socialIcons.map((social, index) => (
                                 <a key={index}
-                                    href={social.href} // 2. මෙතනට social.href ලබා දෙන්න
+                                    href={social.href}
                                     target='_blank'
-                                    // Security එකට මේක වැදගත්
                                     rel="noopener noreferrer"
                                     data-aos='zoom-in'
                                     data-aos-delay={400 + index * 100}
-                                    className='transform hover:scale-125 transition-all duration-300'>
-                                    <img src={social.icon} alt={social.alt}
-                                        className={`w-8 h-8 sm:w-10 sm:h-10 object-contain ${darkMode ? '' : 'filter grayscale hover:grayscale-0'}`} />
+                                    className={`text-3xl sm:text-4xl transform hover:scale-125 transition-all duration-300 ${theme.iconBase} ${social.color}`}>
+                                    {social.icon}
                                 </a>
                             ))}
                         </div>
