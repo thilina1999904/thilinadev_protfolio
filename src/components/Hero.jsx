@@ -5,9 +5,9 @@ import {
   FaFacebook, 
   FaWhatsapp 
 } from "react-icons/fa";
-import CV from '../assets/CV.pdf'
-import { DownloadIcon, MessageCircle } from 'lucide-react'
-import hero from '../assets/hero.png'
+import CV from '../assets/CV.pdf';
+import { DownloadIcon, MessageCircle } from 'lucide-react';
+import hero from '../assets/hero.png';
 
 const Hero = ({ darkMode }) => {
     const socialIcons = [
@@ -53,8 +53,8 @@ const Hero = ({ darkMode }) => {
     };
 
     return (
-        /* මම මෙතනට overflow-x-hidden සහ w-full දැම්මා mobile වල දකුණට scroll වෙන එක නතර කරන්න */
         <div className='relative overflow-x-hidden w-full min-h-screen flex flex-col'>
+            {/* මම මෙතනට overflow-x-hidden සහ w-full දැම්මා mobile වල දකුණට scroll වෙන එක නතර කරන්න */}
             
             {/* Decorative Circle එකේ position එක right-0 කරලා translate-x පාවිච්චි කළා */}
             <div className={`absolute top-20 right-0 translate-x-1/2 w-72 h-72 rounded-full blur-3xl ${theme.decorativeCircle}`}></div>
@@ -119,11 +119,9 @@ const Hero = ({ darkMode }) => {
                     </div>
 
                     <div className='lg:w-1/2 w-full flex justify-center lg:justify-end mt-10 lg:mt-0'
-                        /* Mobile වලදී fade-left නිසා ප්‍රශ්න එන නිසා මෙතනට fade-up දැම්මා */
                         data-aos='fade-up'
                         data-aos-delay='800'>
 
-                        {/* max-w-[90vw] දැම්මේ image එක screen එකෙන් එළියට යන එක නතර කරන්න */}
                         <div className='relative w-full max-w-[90vw] sm:max-w-[450px] lg:max-w-[650px]'>
                             <div className='relative overflow-hidden rounded-2xl shadow-2xl'>
                                 <img
@@ -137,7 +135,7 @@ const Hero = ({ darkMode }) => {
                 </div>
             </section>
         </div>
-    )
-}
+    );
+};
 
 export default Hero;
