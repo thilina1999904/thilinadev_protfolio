@@ -53,13 +53,17 @@ const Hero = ({ darkMode }) => {
     };
 
     return (
-        <div className='relative overflow-hidden min-h-screen flex flex-col'>
-            <div className={`absolute top-20 right-[-10%] w-72 h-72 rounded-full blur-3xl ${theme.decorativeCircle}`}></div>
+        /* මම මෙතනට overflow-x-hidden සහ w-full දැම්මා mobile වල දකුණට scroll වෙන එක නතර කරන්න */
+        <div className='relative overflow-x-hidden w-full min-h-screen flex flex-col'>
+            
+            {/* Decorative Circle එකේ position එක right-0 කරලා translate-x පාවිච්චි කළා */}
+            <div className={`absolute top-20 right-0 translate-x-1/2 w-72 h-72 rounded-full blur-3xl ${theme.decorativeCircle}`}></div>
 
             <section id='home'
                 data-aos='fade-up'
                 data-aos-delay='250'
-                className='body-font z-10'>
+                className='body-font z-10 w-full'>
+                
                 <div className='container mx-auto flex px-4 sm:px-8 lg:px-14 py-12 lg:py-14 flex-col lg:flex-row items-center justify-between lg:mt-20 mt-14'>
 
                     <div className='lg:w-1/2 w-full flex flex-col items-center lg:items-start text-center lg:text-left mt-20 mb-12 lg:mb-0'>
@@ -115,15 +119,17 @@ const Hero = ({ darkMode }) => {
                     </div>
 
                     <div className='lg:w-1/2 w-full flex justify-center lg:justify-end mt-10 lg:mt-0'
-                        data-aos='fade-left'
+                        /* Mobile වලදී fade-left නිසා ප්‍රශ්න එන නිසා මෙතනට fade-up දැම්මා */
+                        data-aos='fade-up'
                         data-aos-delay='800'>
 
-                        <div className='relative w-full max-w-[450px] lg:max-w-[650px]'>
-                            <div className='relative overflow-hidden rounded-2xl'>
+                        {/* max-w-[90vw] දැම්මේ image එක screen එකෙන් එළියට යන එක නතර කරන්න */}
+                        <div className='relative w-full max-w-[90vw] sm:max-w-[450px] lg:max-w-[650px]'>
+                            <div className='relative overflow-hidden rounded-2xl shadow-2xl'>
                                 <img
                                     src={hero}
                                     alt="Hero"
-                                    className='w-full h-auto object-cover transform hover:scale-102 transition-transform duration-500 ease-in-out'
+                                    className='w-full h-auto object-cover transform hover:scale-105 transition-transform duration-500 ease-in-out'
                                 />
                             </div>
                         </div>
